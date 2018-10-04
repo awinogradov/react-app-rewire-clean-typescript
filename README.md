@@ -1,11 +1,11 @@
-# react-app-rewire-typescript
+# react-app-rewire-clean-typescript
 
 Add [Typescript](https://github.com/microsoft/typescript) Webpack loading to a [`react-app-rewired`](https://github.com/timarney/react-app-rewired) config.
 
 ```js
 /* config-overrides.js */
 
-const rewireTypescript = require('react-app-rewire-typescript');
+const rewireTypescript = require('react-app-rewire-clean-typescript');
 
 module.exports = function override(config, env) {
     // ...

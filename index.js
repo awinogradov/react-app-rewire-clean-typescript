@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const { getBabelLoader } = require('react-app-rewired')
 
 /**
  * @param {Object} rule
@@ -68,17 +67,14 @@ function rewireTypescript(config, env, typescriptLoaderOptions = {}) {
 
   // Add Typescript files to automatic file resolution for Webpack.
   config.resolve.extensions = (config.resolve.extensions || []).concat([
-    '.web.ts',
     '.ts',
     '.tsx'
   ])
 
   // Set up a Typescript rule.
-  const babelLoader = getBabelLoader(config.module.rules)
   const typescriptRules = {
     test: /\.tsx?$/,
     use: [
-      { loader: babelLoader.loader, options: babelLoader.options },
       { loader: 'ts-loader', options: typescriptLoaderOptions }
     ]
   }
