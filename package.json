@@ -1,6 +1,6 @@
 {
   "name": "react-app-rewire-clean-typescript",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Add ts-loader to a react-app-rewired config.",
   "main": "index.js",
   "files": [
