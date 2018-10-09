@@ -49,7 +49,7 @@ const addBeforeRule = (rulesSource, ruleMatcher, value) => {
  * @param {any[]} config.module.rules
  * @param {string[]} config.entry
  */
-function rewireTypescript(config, env, typescriptLoaderOptions = {}) {
+function rewireTypescript(config, env, typescriptLoaderOptions = {}, entry = 'src/index') {
   // Monkey patch react-scripts paths to use just `src` instead of
   // `src/index.js` specifically. Hopefully this can get removed at some point.
   // @see https://github.com/facebookincubator/create-react-app/issues/3052
@@ -63,7 +63,7 @@ function rewireTypescript(config, env, typescriptLoaderOptions = {}) {
   // symlinks.
   config.entry = config.entry
     .slice(0, config.entry.length - 1)
-    .concat([path.resolve(fs.realpathSync(process.cwd()), 'src/index')])
+    .concat([path.resolve(fs.realpathSync(process.cwd()), entry)])
 
   // Add Typescript files to automatic file resolution for Webpack.
   config.resolve.extensions = (config.resolve.extensions || []).concat([
